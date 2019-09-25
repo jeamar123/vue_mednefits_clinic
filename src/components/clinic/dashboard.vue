@@ -68,18 +68,18 @@
       	this.showSMSModal = !this.showSMSModal ? true : false;
       },
       logout( ){
-      	this.showLoading();
-				axios.get( axios.defaults.serverUrl + '/app/e_claim/logout')
-					.then(res => {
-						console.log( res );
-						this.hideLoading();
-						location.href = '/auth';
-						this.$router.push({ name: 'MemberAuth' });
-					})
-					.catch(err => {
-						console.log( err );
-						this.hideLoading();
-					});
+      	this.$router.push({ name: 'ClinicAuth' });
+    //   	this.showLoading();
+				// axios.get( axios.defaults.serverUrl + '/app/e_claim/logout')
+				// 	.then(res => {
+				// 		console.log( res );
+				// 		this.hideLoading();
+				// 		this.$router.push({ name: 'MemberAuth' });
+				// 	})
+				// 	.catch(err => {
+				// 		console.log( err );
+				// 		this.hideLoading();
+				// 	});
       },
     }
 	}
