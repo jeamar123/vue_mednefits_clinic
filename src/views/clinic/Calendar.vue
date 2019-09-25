@@ -301,7 +301,7 @@
         </div>
 	    </Modal>
 
-	    <Modal v-if="true" class="clinic-config-modal">
+	    <Modal v-if="false" class="clinic-config-modal">
 	    	<div slot="header">
 	    		<div class="setup-uncompleted-line"></div>
 	    		<ul>

@@ -97,37 +97,38 @@
         this.$swal( title, message, type);
       },
       submitLogin(){
-      	if( !this.login_data.email ){
-      		this.swal('Error!','Email Address is required','error');
-      		return false;
-      	}
-      	if( !this.login_data.password ){
-      		this.swal('Error!','Password is required','error');
-      		return false;
-      	}
-      	this.showLoading();
-      	var data = {
-      		email: this.login_data.email,
-          password: this.login_data.password,
-          stay_signed_in: this.login_data.stay_signed_in == true ? true : false,
-      	}
-      	axios.post( axios.defaults.serverUrl + '/app/e_claim/login', data)
-					.then(res => {
-						this.hideLoading();
-						console.log(res);
-						if( res.data.status ){
+      	this.$router.push({ name: 'clinic-dashboard' });
+     //  	if( !this.login_data.email ){
+     //  		this.swal('Error!','Email Address is required','error');
+     //  		return false;
+     //  	}
+     //  	if( !this.login_data.password ){
+     //  		this.swal('Error!','Password is required','error');
+     //  		return false;
+     //  	}
+     //  	this.showLoading();
+     //  	var data = {
+     //  		email: this.login_data.email,
+     //      password: this.login_data.password,
+     //      stay_signed_in: this.login_data.stay_signed_in == true ? true : false,
+     //  	}
+     //  	axios.post( axios.defaults.serverUrl + '/app/e_claim/login', data)
+					// .then(res => {
+					// 	this.hideLoading();
+					// 	console.log(res);
+					// 	if( res.data.status ){
 							// this.swal('Success!', res.data.message, 'success');
 							// localStorage.setItem('vue_session', res.data.data.UserID);
-							this.$router.push({ name: 'member-dashboard' });
-						}else{
-							this.swal('Error!', res.data.message, 'error');
-						}
-					})
-					.catch(err => {
-						console.log( err );
-						this.hideLoading();
-						this.swal('Error!', err,'error');
-					});
+					// 		this.$router.push({ name: 'clinic-dashboard' });
+					// 	}else{
+					// 		this.swal('Error!', res.data.message, 'error');
+					// 	}
+					// })
+					// .catch(err => {
+					// 	console.log( err );
+					// 	this.hideLoading();
+					// 	this.swal('Error!', err,'error');
+					// });
       },
       submitResetEmail(){
       	if( !this.reset_data.email ){
